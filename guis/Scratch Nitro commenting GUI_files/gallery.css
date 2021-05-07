@@ -1,0 +1,507 @@
+ul.projects {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+ul.projects li {
+  position: relative;
+}
+
+.media-grid.projects .project.thumb.item {
+  margin-right: 20px;
+  margin-bottom: 20px
+}
+
+.remove, .promote {
+  position: absolute;
+  top: -7px;
+  right: -8px;
+  font-size: 16px;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 300px;
+  line-height: 16px;
+  padding: 2px 6px;
+  cursor: pointer;
+  -webkit-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.5);
+  -moz-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.5);
+  -o-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.5);
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.5);
+  background-color: #333;
+  text-shadow: none;
+  opacity: 0;
+}
+
+.promote{
+  top: auto;
+  bottom: -7px;
+}
+
+
+ul.projects li:hover .remove,
+ul.curators li:hover .remove,
+ul li:hover .button {
+  opacity: .8 !important;
+}
+
+ul.projects li .remove:hover,
+ul.curators li .remove:hover,
+ul.promoteable li .promote:hover {
+  opacity: 1;
+}
+.project.thumb span.date {
+  color: #aaa;
+}
+
+.project.thumb.large img {
+  width: 200px;
+  height: 130px;
+}
+
+.tooltip.right .hovertext{
+  top: -8px;
+}
+
+.box-content {
+  padding: 0px;
+}
+
+.v-tabs {
+  padding: 20px 15px 20px 14px;
+  margin-top: 66px;
+  height: 600px;
+  border-top-right-radius: 0px;
+}
+
+.v-tabs-content {
+  min-height: 700px;
+}
+
+
+
+.gallery-info span.creator, 
+.gallery-info span.date {
+  display: block;
+  margin: .2em 0;
+  line-height: 15px;
+}
+
+.gallery-info div.description {
+  margin-top: 1em;
+  height: 380px;
+  width: 214px;
+}
+
+.gallery-info div.description.editable {
+  margin: 0 -10px 0 -14px;
+}
+
+.gallery-info div.description.editable form {
+  margin-bottom: 0px;
+}
+
+
+.tabs-index ul {
+  overflow: hidden;
+  position: absolute;
+  top: -32px;
+  left: 20px;
+}
+
+.tabs-index ul li {
+  padding: 5px 10px;
+  font-weight: bold;
+  border-bottom: none;
+  color: #666;
+}
+
+.tabs-index ul li.selected {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #fff;
+  color: #333;
+}
+
+.tabs-index ul li:hover {
+  cursor: pointer;
+}
+
+#tabs {
+    margin-bottom: 2px;
+}
+
+.box-head {
+  height: 60px;
+}
+
+.load-data {
+  padding-top: 10px;
+}
+
+
+
+.add-project-dialog,
+.add-curator-dialog {
+  margin-top: 10px;
+}
+
+.add-project-dialog form,
+.add-curator-dialog form {
+  margin-bottom: 5px;
+}
+
+.add-project-dialog input,
+.add-curator-dialog input {
+  margin-bottom: 0px;
+}
+
+.add-project-dialog .form-instructions,
+.add-curator-dialog .form-instructions {
+  color: grey;
+  font-style: italic;
+}
+
+
+ul.curators li {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 15px 10px;
+  position: relative;
+  width: 190px;
+  margin: 10px 5px 0px 0px;
+}
+
+ul.curators li > div {
+  margin: 0px !important;
+}
+
+ul.curators {
+  margin:  0px 15px;
+  list-style-type: none;
+}
+
+ul.curators li img {
+  width: 60px;
+  height: 60px;
+  float: left;
+  border: 1px solid #ccc;
+}
+
+ul.curators li span.info {
+  display: block;
+  height: 60px;
+  margin-left: 70px;
+}
+
+/* promote button style */
+ul.curators li span.info .button {
+  margin-top: 17px;
+  opacity: 0;
+}
+
+ul.curators li span.info .button .hovertext {
+  margin-top: 15px;
+}
+
+#owner-content li span.info .button {
+  display: none;
+}
+
+#owner-loader {
+  margin: 0px 0px 5px 10px;
+}
+
+
+/* end promote button style */
+
+ul.curators li:after {
+  clear: both;
+}
+
+
+.add-project-dialog ul.menu {
+  margin-left: 0px;
+}
+
+.add-project-dialog ul.menu li {
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.add-project-dialog ul.menu li:first-child {
+  margin-left: 5px;
+}
+
+.add-project-dialog ul.menu li.selected a {
+  color: #333;
+}
+
+.explore-bar li.ui-draggable a img {
+  cursor: url(../../../images/cursors/openhand.cur), default !important; 
+}
+
+.explore-bar ul.projects li,
+.explore-bar li.ui-draggable {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.explore-bar ul.projects li span.date,
+.explore-bar li.ui-draggable span.date {
+  display: none;
+}
+
+.explore-bar ul.projects li span.remove,
+.explore-bar li.ui-draggable span.remove {
+  display: none;
+}
+
+
+.explore-bar>li.ui-draggable.highlight a img {
+  opacity: .7;
+  cursor: url(../../../images/cursors/closedhand.cur), default !important; 
+}
+
+.explore-bar>li.ui-draggable img {
+  box-shadow: 0 2px 3px rgba(34, 25, 25, 0.5);
+}
+
+#follow-button .count {
+  display: block;
+  color: #666;
+  text-align: center;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+#title {
+  width: 550px;
+}
+
+#title.editable {
+padding: 0px 5px;
+margin-left: -10px;
+}
+
+
+
+.media-grid.ui-droppable {
+  min-height: 800px;
+}
+
+.tab-content .ui-droppable {
+  min-height: 600px;
+}
+
+[data-tab-content="projects"] .alert-container ,
+[data-tab-content="curators"] .alert-container {
+  margin-top: 40px;
+}
+
+#title-alert {
+  position: absolute;
+  top: 10px;
+}
+
+[data-tab-content="curators"] ul.curators {
+ margin: 18px;
+}
+
+[data-tab-content="more-info"] .alert-container {
+  margin-top: -10px;
+}
+
+#explore-bar .carousel .carousel-inner ul {
+  width: 7500px;
+}
+
+#explore-bar .carousel .carousel-inner {
+  position: static !important;
+}
+
+#explore-bar .carousel-inner.loading {
+  opacity: 1 !important;
+}
+
+#gallery-cover-image {
+  border: 1px solid #ccc;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 210px;
+}
+
+#gallery-cover-image >div.img-container {
+  overflow: hidden;
+  position: relative;
+  padding-top: 6px;
+}
+
+#gallery-cover-image > div.img-container> img {
+  border: none;
+  width: 200px;
+  margin: 0 auto;
+}
+
+/*.explore-bar-visible .ui-droppable.ui-state-active {*/
+/*
+.dragging-ui-droppable .ui-droppable {
+  border:5px dashed #ccc;
+  width:688px;
+}
+
+#drop-here{
+  display:none;
+}
+
+.dragging-ui-droppable #drop-here {
+  display:block;
+  color:#bebebe;
+  font-size:40px;
+  width:auto;
+  height:40px;
+  position:fixed;
+  text-align:center;
+  margin:100px 0 0 196px;
+  text-shadow:none;
+  z-index:10;
+}
+
+.dragging-ui-droppable #tabs-content .action-bar,
+.dragging-ui-droppable #tabs-content .media-grid{
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  filter: alpha(opacity=60);
+  opacity:0.6;
+  width:678px;
+}
+
+.ui-draggable,
+.ui-draggable img{
+  cursor:hand;
+  cursor:grab;
+  cursor:-moz-grab;
+  cursor:-webkit-grab;
+}
+.dragging-ui-droppable .ui-draggable,
+.dragging-ui-droppable .ui-draggable img{
+  cursor:grabbing;
+  cursor:-moz-grabbing;
+  cursor:-webkit-grabbing;
+}
+*
+*/
+
+#explore-bar #related-projects {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#explore-bar.curators ul.scroll-content {
+  height: 128px;
+}
+
+#explore-bar.projects ul.scroll-content {
+  height: 160px;
+}
+
+#explore-bar .scroll-content li {
+  margin: 0px;
+  padding: 10px 15px 0px 15px;
+  position: relative;
+}
+
+#explore-bar .scroll-content li.empty {
+  display: none;
+}
+
+#explore-bar .scroll-content li:hover {
+  background-color: #aaa;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#explore-bar .slider-carousel {
+  padding-top: 0px;
+}
+
+#explore-bar .scroll-content .add-label {
+  display: block;
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  text-align: center;
+  margin-left: -15px;
+}
+
+
+#explore-bar .scroll-content li .add-label .text {
+  display: none;
+  background-color: #333;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.5);
+  -moz-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.5);
+  -o-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.5);
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.5);
+  opacity: .9; 
+  padding: 5px 8px;
+  font-size: 16px;
+  color: #fff;
+  text-shadow: none;
+}
+
+#explore-bar .scroll-content li:hover .add-label .text {
+  display: inline-block;
+}
+
+#explore-bar .scroll-content li:hover .add-label .text:after {
+  content: " +";
+  font-weight: bold;
+
+}
+
+#add-project-dialog .control-group {
+  margin-bottom: 8px;
+}
+
+#project-url {
+  width: 300px;
+}
+
+#project-tag {
+  width: 150px;
+}
+
+#open-gallery,
+#disable-notifications {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+#open-gallery .loading .ajax-loader {
+  display: inline-block;
+  height: 20px;
+}
+
+#description.read-only {
+  height: 405px;
+  margin-top: 5px;
+}
+
+#description.read-only .overview {
+  padding-left: 1px;
+  width: 196px;
+  word-wrap: break-word;
+}
+#description .viewport {
+    /* so you can click the scrollbar in firefox */
+    margin-right: 12px;
+}
+
+.scrollbar {
+  width: auto;
+}
+
+
+

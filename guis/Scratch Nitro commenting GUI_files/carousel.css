@@ -1,0 +1,215 @@
+.carousel .carousel-inner .item {
+  float: left;
+  display: inline-block;
+}
+
+.carousel .carousel-inner ul {
+  width: 3500px;
+  list-style-type: none;
+  position: relative;
+  overflow: hidden;
+  margin: 0px;
+  min-height: 80px;
+}
+
+.carousel .carousel-inner ul li {
+  float: left;
+  padding-right: 30px;
+}
+
+.carousel .carousel-inner ul li.last {
+  padding-right: 0px;
+}
+
+.carousel .carousel-inner ul li.empty {
+  float: none;
+  padding: 0px;
+  width: 850px;
+  text-align: center;
+}
+
+.carousel .carousel-inner ul li.empty h4 {
+  color: #aaa;
+  position: absolute;
+  top: 30%;
+}
+
+.carousel {
+  position: relative;
+  line-height: 1;
+  padding: 10px 43px 5px 43px;
+}
+
+.carousel .carousel-inner {
+  overflow: scroll;
+  overflow-y: hidden;
+  width: 100%;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.carousel .item {
+  position: relative;
+  -webkit-transition: 0.6s ease-in-out left;
+  -moz-transition: 0.6s ease-in-out left;
+  -ms-transition: 0.6s ease-in-out left;
+  -o-transition: 0.6s ease-in-out left;
+  transition: 0.6s ease-in-out left;
+}
+.carousel .item > img {
+  display: block;
+  line-height: 1;
+}
+.carousel .active,
+.carousel .next,
+.carousel .prev {
+  display: block;
+}
+.carousel .active {
+  left: 0;
+}
+.carousel .next, .carousel .prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.carousel .next {
+  left: 100%;
+}
+.carousel .prev {
+  left: -100%;
+}
+.carousel .next.left, .carousel .prev.right {
+  left: 0;
+}
+.carousel .active.left {
+  left: -100%;
+}
+.carousel .active.right {
+  left: 100%;
+}
+.carousel .carousel-control {
+  position: absolute;
+  top: 40%;
+  left: 0px;
+  width: 36px;
+  height: 36px;
+  margin-top: -20px;
+  font-size: 60px;
+  font-weight: 100;
+  line-height: 30px;
+  text-align: center;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  font-family: 'Book Antiqua',Lucida Grande, Verdana,Helvetica,Arial,sans-serif;
+}
+.carousel .carousel-control.right {
+  left: auto;
+  right: 0px;
+}
+.carousel .carousel-control:hover {
+  text-decoration: none;
+}
+
+.carousel .carousel-control.off {
+  color: #333;
+  cursor: default;
+}
+
+.carousel .carousel-control.on:hover {
+  text-decoration: none;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  cursor: pointer;
+}
+.carousel .carousel-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 15px 5px;
+  background: #333333;
+  background: rgba(0, 0, 0, 0.75);
+}
+.carousel .carousel-caption h4,
+.carousel .carousel-caption p {
+  color: #ffffff;
+}
+
+/* CAROUSEL CONTENT */
+
+.carousel .thumb span.title {
+  font-size: 0.9230em; /* 12px */
+  margin-bottom: 1px;
+}
+
+.carousel .thumb span.title a {
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 800;
+}
+
+.carousel .thumb span.title,
+.carousel .thumb span.owner,
+.carousel .thumb span.stats {
+  display: block;
+  line-height: normal;
+  word-wrap: break-word;
+}
+
+.carousel .thumb span.owner a {
+  color: #666;
+}
+
+.carousel .thumb span.stats, 
+.carousel .thumb span.owner { 
+  color: #666;
+  font-size: 0.8462em; /* 11px */
+}
+
+.carousel .thumb img {
+  border: 1px solid #ddd;
+}
+
+/* project thumbnails */
+.carousel .project.thumb a.image {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.carousel .project.thumb {
+  width: 146px;
+}
+
+.carousel .project.thumb img {
+  width: 144px;
+  height: 108px;
+  margin-bottom: 2px;
+}
+
+
+/* user thumbnails */
+.carousel .user.thumb {
+  width: 67px;
+}
+
+.carousel .user.thumb img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 5px;
+}
+
+.carousel .user.thumg a.image {
+  display: block;
+}
+
+.carousel-container h4 {
+  display: inline-block;
+}
+
+.carousel-container [data-control="view-all"] {
+  float: right;
+}
+
