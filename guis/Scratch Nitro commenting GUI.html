@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)file:///C:/Users/PC1/Downloads/Scratch%20Nitro%20commenting%20GUI.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body class=""><div id="scratchaddons-iframes"><iframe id="scratchaddons-iframe-1" style="display: none;" src="./Scratch Nitro commenting GUI_files/saved_resource.html"></iframe><iframe id="scratchaddons-iframe-2" style="display: none;" src="./Scratch Nitro commenting GUI_files/saved_resource(1).html"></iframe><iframe id="scratchaddons-iframe-3" style="display: none;" src="./Scratch Nitro commenting GUI_files/saved_resource(2).html"></iframe><iframe id="scratchaddons-iframe-4" style="display: none;" src="./Scratch Nitro commenting GUI_files/saved_resource(3).html"></iframe></div><script type="text/javascript" async="" src="./Scratch Nitro commenting GUI_files/ga.js.download"></script><script type="text/javascript" async="" src="./Scratch Nitro commenting GUI_files/ga.js(1).download"></script><script src="chrome-extension://fbeffbjdlemaoicjdapfpikkikjoneco/libraries/thirdparty/cs/comlink.js"></script><script type="module" src="chrome-extension://fbeffbjdlemaoicjdapfpikkikjoneco/content-scripts/inject/module.js"></script><script>(function injectRedux() {
+  window.__scratchAddonsRedux = {};
+  if (typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ !== "undefined") {
+    return console.warn("Redux feature is disabled due to conflict.");
+  }
+
+  // ReDucks: Redux ducktyped
+  // Not actual Redux, but should be compatible
+  class ReDucks {
+    static compose(...composeArgs) {
+      if (composeArgs.length === 0) return (...args) => args;
+      return (...args) => {
+        const composeArgsReverse = composeArgs.slice(0).reverse();
+        let result = composeArgsReverse.shift()(...args);
+        for (const fn of composeArgsReverse) {
+          result = fn(result);
+        }
+        return result;
+      };
+    }
+
+    static applyMiddleware(...middlewares) {
+      return (createStore) => (...createStoreArgs) => {
+        const store = createStore(...createStoreArgs);
+        let { dispatch } = store;
+        const api = {
+          getState: store.getState,
+          dispatch: (action) => dispatch(action),
+        };
+        const initialized = middlewares.map((middleware) => middleware(api));
+        dispatch = ReDucks.compose(...initialized)(store.dispatch);
+        return Object.assign({}, store, { dispatch });
+      };
+    }
+  }
+
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ = function (...args) {
+    const scratchAddonsRedux = window.__scratchAddonsRedux;
+    const reduxTarget = (scratchAddonsRedux.target = new EventTarget());
+    scratchAddonsRedux.state = {};
+    scratchAddonsRedux.dispatch = () => {};
+
+    function middleware({ getState, dispatch }) {
+      scratchAddonsRedux.dispatch = dispatch;
+      scratchAddonsRedux.state = getState();
+      return (next) => (action) => {
+        const nextReturn = next(action);
+        const ev = new CustomEvent("statechanged", {
+          detail: {
+            prev: scratchAddonsRedux.state,
+            next: (scratchAddonsRedux.state = getState()),
+            action,
+          },
+        });
+        reduxTarget.dispatchEvent(ev);
+        return nextReturn;
+      };
+    }
+    args.splice(1, 0, ReDucks.applyMiddleware(middleware));
+    return ReDucks.compose.apply(this, args);
+  };
+})()</script><script>(function fixConsole() {
+  window._realConsole = {
+    ...console,
+  };
+})()</script>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     
+    <meta name="google-site-verification" content="m_3TAXDreGTFyoYnEmU9mcKB4Xtw5mw6yRkuJtXRKxM">
+    <title>Scratch Studio - Scratch Nitro</title>
+    
+
+<meta name="description" content="Scratch Nitro, a Studio on Scratch">
+
+    <link rel="stylesheet" href="./Scratch Nitro commenting GUI_files/jquery.ui.all.css">
+    
+        <link href="./Scratch Nitro commenting GUI_files/main.css" rel="stylesheet" type="text/css">
+   
+   <link rel="stylesheet" href="./Scratch Nitro commenting GUI_files/handheld.css" media="handheld, only screen and (max-device-width:480px)">
+
+    
+<!-- templates/galleries/base.html block css -->
+<link href="./Scratch Nitro commenting GUI_files/gallery.css" rel="stylesheet">
+<link href="./Scratch Nitro commenting GUI_files/carousel.css" rel="stylesheet">
+<link href="./Scratch Nitro commenting GUI_files/jquery.ui.all(1).css" rel="stylesheet">
+<link href="./Scratch Nitro commenting GUI_files/modal.css" rel="stylesheet">
+<!-- end block css -->
+
+    <script type="text/javascript" src="./Scratch Nitro commenting GUI_files/jquery.min.js.download"></script>
+    <script type="text/javascript" src="./Scratch Nitro commenting GUI_files/underscore-min.js.download"></script>
+    
+    <script>
+      window.console||(window.console={log:$.noop,error:$.noop,debug:$.noop}); // ensure console fails gracefully when missing
+      // define _gaq here to log errors with GA. ga.js script gets loaded furthe down
+      var sessionCookieName = 'scratchsessionsid';
+      var _gaq = window._gaq || [];
+      _gaq.push(['_setAccount', 'UA-30688952-1']);
+      _gaq.push(['_setSampleRate', '10']);
+      _gaq.push(['_trackPageview']);
+      
+      
+      
+      _gaq.push(['_setCustomVar', 2, 'status', 'logged_in', 2]);
+      
+      
+
+      
+    </script>
+    <script type="text/javascript">
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        function setCookie(name, value, days) {
+            var expires;
+
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toGMTString();
+            } else {
+                expires = "";
+            }
+            document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
+        }
+    </script>
+    
+  <script>
+    
+
+var Scratch = Scratch || {};
+Scratch.INIT_DATA = Scratch.INIT_DATA || {};
+
+
+
+Scratch.INIT_DATA.ADMIN = false;
+Scratch.INIT_DATA.LOGGED_IN_USER = {
+  
+  model: {
+    username: 'JackyBorderCollie',
+    username_truncated: 'JackyBorder...',
+    has_outstanding_email_confirmation: 'false',
+    
+    id: 57712867,
+    profile_url: '/users/JackyBorderCollie/',
+    thumbnail_url: '//uploads.scratch.mit.edu/users/avatars/57712867.png'
+     
+  },
+  
+  options: {
+    
+      authenticated: true
+    
+    
+,
+  related: {
+  },
+  
+  owner: true,
+  
+  
+
+  permissions: [
+    'edit-gallery'
+  ],
+
+  
+  follower: true,
+  
+
+
+
+  }
+};
+
+Scratch.INIT_DATA.project_comments_enabled = true;
+Scratch.INIT_DATA.gallery_comments_enabled = true;
+Scratch.INIT_DATA.userprofile_comments_enabled = true;
+
+Scratch.INIT_DATA.BROWSERS_SUPPORTED = {
+
+  chrome: 35,
+  firefox: 31,
+  msie: 8,
+  safari: 7
+};
+
+Scratch.INIT_DATA.TEMPLATE_CUES = {
+
+  unsupported_browser: true,
+  welcome: true,
+  confirmed_email: false
+};
+
+
+
+
+Scratch.INIT_DATA.GALLERY = {
+  model: {
+    id: 29393340,
+    title: 'Scratch Nitro',
+    owner: 'JackyBorderCollie',
+    comments_allowed: true,
+    is_owner: true
+  },
+  related_counts: {
+  },
+}
+
+
+
+
+Scratch.INIT_DATA.IS_IP_BANNED = false;
+
+Scratch.INIT_DATA.GLOBAL_URLS = {
+  'media_url': '//uploads.scratch.mit.edu/',
+  'static_url': '//cdn.scratch.mit.edu/scratchr2/static/__93830503ee402b662c47736f0838fda5__/',
+  'static_path': '/scratchr2/static/__93830503ee402b662c47736f0838fda5__/'
+}
+
+Scratch.INIT_DATA.IS_SOCIAL = true;
+
+  </script>
+
+
+    <meta property="og:type" content="website">
+    
+    <meta property="og:description" content="Make games, stories and interactive art with Scratch. (scratch.mit.edu)">
+    
+
+    
+    <meta property="og:title" content="Scratch - Imagine, Program, Share">
+    <meta property="og:url" content="https://scratch.mit.edu/studios/29393340/comments/">
+    
+
+  <link rel="stylesheet" data-addon-id="semicolon" data-addon-index="24" class="scratch-addons-style" href="chrome-extension://fbeffbjdlemaoicjdapfpikkikjoneco/addons/semicolon/semicolon.css"><style class="scratch-addons-style" data-addon-id="resizable-comment-input" data-addon-index="32">.compose-comment .textarea-row textarea,
+#comments #comment-form textarea,
+#comments .comment form textarea {
+  resize: vertical;
+  min-height: 32px;
+  max-height: 480px;
+}
+
+/*# sourceURL=userstyle.css */</style>
+
+  
+  <!--[if lte IE 8]>
+  <div class="unsupported-browser banner" data-cue="unsupported_browser">
+    <div class="container">
+      <span>Scratch supports Internet Explorer 9+. We suggest you upgrade to <a href="/info/faq/#requirements">a supported browser</a>, <a href="/scratch2download/">download the offline editor</a>, or <a href="https://en.scratch-wiki.info/wiki/List_of_Bug_Workarounds">read about common workarounds</a>.</span>
+    </div>
+  </div>
+  <![endif]-->
+    <div id="pagewrapper">
+      
+      
+      
+        
+
+      <div class="confirm-email banner" data-cue="confirmed_email" style="display:none;">
+        <div class="container">
+          <span><a id="confirm-email-popup" href="https://scratch.mit.edu/studios/29393340/comments/#">Confirm your email</a> to enable sharing. <a href="https://scratch.mit.edu/info/faq/#accounts">Having trouble?</a></span>
+          <div class="close">x</div>
+        </div>
+      </div>
+
+      <div class="email-outage banner" style="display:none; background-color:#FF661A;">
+        <div class="container">
+          <span>We are experiencing a disruption with email delivery. If you are not receiving emails from us, please try after 8am EST.</span>
+          <div class="close">x</div>
+        </div>
+      </div>
+
+        
+        
+<div class="container" id="content">
+        <div id="alert-view"></div>
+        
+<!-- templates/galleries/base.html block main-content -->
+
+<div class="cols" id="gallery">
+  
+  <div class="col-12">
+    <div class="box">
+      
+      <div class="box-content v-tabs-content tabs">
+          <ul id="tabs" data-control="tabs" class="tabs-index box-h-tabs h-tabs">
+           
+           <!-- templates/galleries/gallery.html block gallery-tabs -->
+           
+          <!-- end block gallery-tabs -->
+           
+          </ul>
+        <div class="tab-content" id="tabs-content">
+         
+  
+
+  
+  
+    
+
+
+
+
+<div id="comments">
+  
+  
+    
+  
+  
+  <h2>BBCode comment formatting GUI</h2>
+<p><b>This is the GUI for the new commenting. Layout can change!</b> Also, this doesn't work because it has no JavaScript.</p><br>
+
+<div id="comment-form">
+    
+        <img class="avatar" src="./Scratch Nitro commenting GUI_files/57712867_60x60.png" width="45" height="45">
+<div class="button small grey" data-control="cancel"><a><b>bold</b></a></div>
+    
+    
+    
+        <div class="button small grey" data-control="cancel"><a><i>italic</i></a></div><div class="button small grey" data-control="cancel"><a><u>underlined</u></a></div><div class="button small grey" data-control="cancel"><a><s>strike</s></a></div><div class="button small grey" data-control="cancel"><a>buletted list</a></div><div class="button small grey" data-control="cancel"><a>number list</a></div><div class="button small grey" data-control="cancel"><a>list item</a></div><div class="button small grey" data-control="cancel"><a>list item</a></div><div class="button small grey" data-control="cancel"><a>emoji</a></div><div class="button small grey" data-control="cancel"><a>scratchblocks</a></div><div class="button small grey" data-control="cancel"><a>link</a></div><div class="button small grey" data-control="cancel"><a>preview</a></div><form id="main-post-form" class="comments-on">
+            <div class="control-group tooltip right">
+                
+                <textarea name="content" placeholder="Leave a comment"></textarea>
+                
+                <span id="comment-alert" class="hovertext error" data-control="error" data-content="comment-error"><span class="arrow"></span><span class="text"></span></span>
+                <span class="small-text">You have unlimited characters left.</span>
+<br>
+<br>
+<br>
+<span class="small-text">GUI by JackyBorderCollie.</span>
+            </div>
+            
+        </form>
+        
+    
+    <div class="clearfix"></div>
+  </div>
+  <div>
+    <ul class="comments" data-content="comments">
+      
+    
+<!-- templates/comments/list.html -->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+</ul>
+  </div>
+</div>
+
+  
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end block main-content -->
+
+        </div>
+
+
+        
+        
+    </div>
+    
+    
+
+    
+<!-- templates/modal-login.html block -->
+	    <div class="modal hide fade in" id="login-dialog" style="width: 450px">
+        <form method="post" action="https://scratch.mit.edu/login/">
+          <fieldset>
+            <div class="modal-header">
+              <a href="https://scratch.mit.edu/studios/29393340/comments/#" data-dismiss="modal" class="close">x
+              </a>
+	      <h3>Sign in</h3>
+            </div>
+            <div class="modal-body">
+            
+              <div class="control-group">
+		      <label class="control-label" for="username">Username
+                </label>
+                <div class="controls">
+                  <input class="username" type="text" name="username" maxlength="30">
+                </div>
+              </div>
+              <div class="control-group">
+		            <label class="control-label" for="password">Password
+                </label>
+                <div class="controls">
+                  <input type="password" name="password" class="password">
+                </div>
+              </div>
+              
+            </div>
+            <div class="modal-footer">
+              <span class="error">
+              </span>
+              <div class="buttons-right">
+                <button class="button primary" type="submit">Sign in</button> 
+                
+		<a data-control="registration">Or Join Scratch</a>
+                
+              </div>
+            </div>
+           
+          </fieldset>
+        </form>
+        <iframe class="iframeshim" frameborder="0" scrolling="no" src="./Scratch Nitro commenting GUI_files/saved_resource(4).html"><html><head></head><body></body></html></iframe>
+      </div>
+<!-- end templates/modal-login.html -->
+
+    
+        <div id="registration" class="registration modal hide fade" data-backdrop="static">
+          <iframe class="iframeshim" frameborder="0" scrolling="no" src="./Scratch Nitro commenting GUI_files/saved_resource(5).html"><html><head></head><body></body></html></iframe>
+        </div>
+    
+
+    
+    
+
+    
+    
+
+    <script type="text/javascript" src="./Scratch Nitro commenting GUI_files/jquery-ui.min.js.download"></script>
+
+    <script type="text/javascript" src="./Scratch Nitro commenting GUI_files/main.js.download" charset="utf-8"></script>
+
+  
+  <script type="text/javascript">
+    // load gaq script
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+    <script type="text/javascript" src="./Scratch Nitro commenting GUI_files/base.js.download" charset="utf-8"></script>
+    <script type="text/javascript" src="./Scratch Nitro commenting GUI_files/lazyload.js.download" charset="utf-8"></script>
+    
+<script src="./Scratch Nitro commenting GUI_files/jquery.ui.widget.js.download"></script>
+<script src="./Scratch Nitro commenting GUI_files/jquery.iframe-transport.js.download"></script>
+<script src="./Scratch Nitro commenting GUI_files/jquery.fileupload.js.download"></script>
+<!-- templates/galleries/gallery.html block js -->
+  <script>
+  sessionStorage.setItem("gallery_name", "Scratch Nitro")
+  sessionStorage.setItem("gallery_id", 29393340)
+  sessionStorage.setItem("explore_by", "galleries")
+	</script>
+
+    
+
+    
+
+  
+
+
+<script type="text/template" id="template-collection-count">
+  <%- count %>
+</script>
+
+<script type="text/template" id="template-comment-actions">
+<% if (can_delete) { %>
+  <% if (is_staff && comment_user == current_user) { %>
+    <span data-control="delete" class="actions report">Delete</span>
+  <% } else if (type != "gallery" || comment_user == current_user) { %>
+    <span data-control="delete" class="actions report">Delete</span>
+  <% } %>
+<% } %>
+<% if (current_user != comment_user) { %>
+  <span data-control="report" class="actions report">
+  <% if (student_of_educator) { %>
+    Delete
+  <% } else { %>
+    Report
+  <% } %></span>
+<% } %>
+</script>
+
+<script type="text/template" id="template-modal-login">
+<div class="modal hide fade in" id="login-dialog" style="width: 450px">
+  <form method="post" action="/login/">
+    <fieldset>
+      <div class="modal-header">
+        <a href="#" data-dismiss="modal" class="close">x
+        </a>
+        <h3>Login</h3>
+      </div>
+      <div class="modal-body">
+        <div class="control-group">
+        <label class="control-label" for="username">Username
+          </label>
+          <div class="controls">
+            <input id="username" type="text" name="username" maxlength="30" />
+          </div>
+        </div>
+        <div class="control-group">
+        <label class="control-label" for="password">Password
+          </label>
+          <div class="controls">
+            <input type="password" name="password" id="password" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <span class="error">
+        </span>
+        <span class="button primary" id="sign-in" data-control="site-login">
+        <span>{% trans "Sign in" $}
+          </span>
+        </span>
+      </div>
+    </fieldset>
+  </form>
+</div>
+</script>
+
+<script type="text/template" id="template-comment-reply">
+  <form>
+    <div class="control-group tooltip right">
+      <textarea name="content"></textarea>
+      
+      <span class="hovertext error" data-control="error" data-content="comment-error"><span class="arrow"></span><span class="text"></span></span>
+      <span class="small-text">You have <span id="chars-left-<%- comment_id %>">500</span> characters left.</span>
+    </div>
+    <div class="control-group">
+        <div class="button small" data-parent-thread="<%- thread_id %>" data-commentee-id="<%- commentee_id %>" data-control="post"><a href="#null">Post</a></div>
+        <div class="button small grey" data-control="cancel"><a href="#null">Cancel</a></div>
+      <span class="notification"></span>
+    </div>
+  </form>
+</script>
+
+<script type="text/template" id="template-deletion-canceled">
+<div class="deletion-canceled">
+  <div class="form">
+    <p>
+    Your account was scheduled for deletion but you logged in. Your account has been reactivated. If you didn’t request for your account to be deleted, you should <a href="/accounts/password_change/">change your password</a> to make sure your account is secure. 
+    </p>
+  </div>
+</div>
+</script>
+
+<script type="text/template" id="template-unsupported-browser">
+  <div class="unsupported-browser banner" data-cue="unsupported_browser">
+    <div class="container">
+      <span>Scratch works best on newer browsers. We suggest you upgrade to <a href="/info/faq/#requirements">a supported browser</a>, <a href="/scratch2download/">download the offline editor</a>, <a href="https://en.scratch-wiki.info/wiki/List_of_Bug_Workarounds">or read about common workarounds</a>.</span>
+      <div class="close">x</div>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="template-unsupported-msie">
+  <div class="unsupported-browser banner" data-cue="unsupported_browser">
+    <div class="container">
+      <span>Scratch will stop supporting Internet Explorer 8 on April 30, 2015. We suggest you upgrade to <a href="/info/faq/#requirements">a supported browser</a>, <a href="/scratch2download/">download the offline editor</a>, or <a href="https://en.scratch-wiki.info/wiki/List_of_Bug_Workarounds">read about common workarounds</a>.</span>
+      <div class="close">x</div>
+    </div>
+  </div>
+</script>
+
+
+<script type="text/template" id="template-gallery-report">
+<div class="gallery-report">
+  <div class="form">
+    <div>
+      Please explain why you feel this studio is disrespectful or inappropriate, or otherwise breaks the <a href="/community_guidelines" target="_blank">Scratch Community Guidelines.</a>
+    </div>
+    <br>
+    <p class="errors">Please select the inappropriate part of the page.</p>
+    <form class="form-horizontal" id='report_form'>
+      <input type="radio" id='radio_title' name="report_value" value="title">Title</input>
+      <br>
+      <input type="radio" id='radio_description' name="report_value" value="description">Description</input>
+      <br>
+      <input type="radio" id='radio_thumbnail' name="report_value" value="thumbnail">Thumbnail</input>
+    </form>
+    <div>
+      Are there inappropriate comments in this studio? Please report them by clicking the "report" button on the individual comments.
+    </div>
+  </div>
+</div>
+</script>
+
+<script type="text/template" id="template-gallery-thanks">
+<div class="gallery-report">
+  <div class="form">
+    <div>Thank you. We have received your report. The Scratch Team will review the studio based on the Scratch community guidelines.
+    </div>
+  </div>
+</div>
+</script>
+
+
+
+<script type="text/template" id="template-comment-reply">
+  <form>
+    <div class="control-group">
+      <textarea name="content"></textarea>
+      <span class="small-text">You have <span id="chars-left-<%- comment_id %>">500</span> characters left.</span>
+    </div>
+    <div class="control-group">
+      <div class="button small" data-parent-thread="<%- thread_id %>" data-commentee-id="<%- commentee_id %>" data-control="post"><a href="#null">Post</a></div>
+      <div class="button small grey" data-control="cancel"><a href="#null">Cancel</a></div>
+      <span class="notification"></span>
+    </div>
+  </form>
+</script>
+
+
+    
+
+    <!-- load javascript translation catalog, and javascript fuzzy date library -->
+    <script type="text/javascript" src="./Scratch Nitro commenting GUI_files/saved_resource"></script>
+    <script type="text/javascript" src="./Scratch Nitro commenting GUI_files/jquery.timeago.settings.js.download"></script>
+
+    
+    <script type="text/javascript" src="./Scratch Nitro commenting GUI_files/main.js(1).download"></script>
+    
+
+    <script type="text/javascript" src="./Scratch Nitro commenting GUI_files/global.js.download"></script>
+    <script>
+      Scratch.NotificationPollTime = 300000;
+    </script>
+
+    
+    <script type="text/javascript" src="./Scratch Nitro commenting GUI_files/views.js.download"></script> 
+    <script type="text/javascript" src="./Scratch Nitro commenting GUI_files/main.js(2).download"></script> 
+
+
+    
+    <script>
+    $(document).on("accountnavready", function(e){
+        $('#topnav .messages').notificationsAlert();
+    });
+    </script>
+    
+  
+  <!-- Site Version: 3.2021.05.05.1_2021_05_06_09_40 -->
+
+</body></html>
