@@ -8,7 +8,7 @@ We are looking for a good coder, that can make browser extensions, like Scratch 
 ### Pros
 - More users can experience Scratch Nitro
 - Way easier to make Scratch Nitro sneak peek videos
-- We now know how to get it onto the webstore (well, at least me, @Marc92020)
+- We now know how to get it onto the webstore (well, at least Marc92020)
 - We now know how Scratchcoins will work
 ### Cons
 - A good extension coder is required
