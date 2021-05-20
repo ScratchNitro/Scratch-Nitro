@@ -18,4 +18,4 @@ We are looking for a good coder, that can make browser extensions, like Scratch 
 ### How will Scratchcoins work?
 Scratchcoins will work by using extension features very often. You start off with 0 scratchcoins (because normal scratch nitro is free) and the more Scratchcoins you get, the more Scratch Nitro ranks you can get! You can also get Scratchcoins by loving, favoriting, remixing, commenting, posting in forums, following, sharing projects, following studios, inviting curators to studios, being a studio curator, being front paged, being a front page curator, and also by creting a studio.
 ### Coding
-A lot of coding will be used, so if a very good coder could help, that would be great. We have invited Jeffalo but we might need more great coders to help us.
+A lot of coding will be used, so if a very good coder could help, that would be great. We have invited Jeffalo but we might need more great coders to help us, so if you know a lot of JavaScript (and UserScript, if needed) you can request to join at the issues tab!
