@@ -17,3 +17,5 @@ We are looking for a good coder, that can make browser extensions, like Scratch 
 - To get it onto the Chrome Webstore we need to create a Chrome Developers account and we need to pay 5 dollars using a credit card
 ### How will Scratchcoins work?
 Scratchcoins will work by using extension features very often. You start off with 0 scratchcoins (because normal scratch nitro is free) and the more Scratchcoins you get, the more Scratch Nitro ranks you can get! You can also get Scratchcoins by loving, favoriting, remixing, commenting, posting in forums, following, sharing projects, following studios, inviting curators to studios, being a studio curator, being front paged, being a front page curator, and also by creting a studio.
+### Coding
+A lot of coding will be used, so if a very good coder could help, that would be great. We have invited Jeffalo but we might need more great coders to help us.
